@@ -1,5 +1,5 @@
-import Button from "./components/Button";
+import Header from "./components/header";
 
-const DashboardPage = () => <Button />;
+const DashboardPage = () => <Header />;
 
 export default DashboardPage;
