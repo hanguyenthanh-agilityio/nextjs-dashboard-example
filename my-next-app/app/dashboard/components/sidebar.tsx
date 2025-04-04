@@ -5,10 +5,11 @@ import UpgradePlan from "./upgradePlan";
 const Sidebar = () => (
   <div className="flex flex-col h-full items-center py-10 justify-between">
     <Image src="/images/mainLogo.svg" width={121} height={37} alt="Main Logo" />
-    <div className="flex flex-col w-full px-[35px]">
+    <div className="flex md:flex-col w-full px-[35px]">
       <SidebarNav />
     </div>
     <Image
+      className="hidden md:block"
       src="/images/girlLogo.svg"
       width={157}
       height={190}
