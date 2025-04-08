@@ -32,7 +32,7 @@ const SidebarNav = () => {
             key={item.name}
             href={item.href}
             className={clsx(
-              "flex w-full h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 mt-5",
+              "flex w-full h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 mt-5 mr-2 md:mr-0",
               {
                 "bg-sky-100 text-blue-600": pathname === item.href,
               }
