@@ -21,7 +21,7 @@ export default function CourseCard({
 }: CourseCardProps) {
   return (
     <div
-      className={`relative w-full h-40 rounded-2xl shadow-xl p-4 flex justify-between bg-[${bgColor}]`}
+      className={`relative w-full h-40 rounded-2xl shadow-xl p-4 flex justify-between ${bgColor}`}
     >
       <div className="flex flex-col justify-between">
         <div>
