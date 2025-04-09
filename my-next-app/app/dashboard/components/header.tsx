@@ -3,7 +3,7 @@ interface HeaderProps {
 }
 
 const Header = ({ user }: HeaderProps) => (
-  <header className="flex justify-between item-center">
+  <header className="flex justify-between item-center md:pt-[25px]">
     <h2 className="text-lg text-[#369FFF]">
       Hello <span className="font-bold uppercase">{user}</span>, welcome back!
     </h2>
