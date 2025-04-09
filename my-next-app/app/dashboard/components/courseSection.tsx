@@ -1,62 +1,46 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import CourseCard from "./courseCard";
+import { getDashboard } from "@/api/dashboard";
+import { Course } from "@/types/common";
 
-const dataCourses = [
-  {
-    title: "French",
-    lessons: 35,
-    progress: 75,
-    bgColor: "bg-blue-400",
-    icon: "/images/cards/Frame.png",
-    width: 75,
-    height: 110,
-  },
-  {
-    title: "Portugese",
-    lessons: 30,
-    progress: 50,
-    bgColor: "bg-orange-400",
-    icon: "/images/cards/PortugeseIcon.png",
-    width: 55,
-    height: 87,
-  },
-  {
-    title: "Italian",
-    lessons: 20,
-    progress: 20,
-    bgColor: "bg-lime-500",
-    icon: "/images/cards/ItalianIcon.png",
-    width: 97,
-    height: 110,
-  },
-  {
-    title: "German",
-    lessons: 40,
-    progress: 75,
-    bgColor: "bg-yellow-400",
-    icon: "/images/cards/GermanIcon.png",
-    width: 90,
-    height: 81,
-  },
-];
+const CourseSection = () => {
+  const [courses, setCourses] = useState<Course[]>([]);
+  console.log(courses, "data:");
 
-const CourseSection = () => (
-  <div className="py-12">
-    <h2 className="text-3xl text-[#303030] font-bold">My Courses</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-6 pr-10">
-      {dataCourses.map((course) => (
-        <CourseCard
-          key={course.title}
-          title={course.title}
-          lessons={course.lessons}
-          progress={course.progress}
-          bgColor={course.bgColor}
-          icon={course.icon}
-          width={course.width}
-          height={course.height}
-        />
-      ))}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const dashboardData = await getDashboard();
+        setCourses(dashboardData[0]?.courses || []);
+      } catch (error) {
+        console.error("Error fetching dashboard data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="py-12">
+      <h2 className="text-3xl text-[#303030] font-bold">My Courses</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-6 pr-10">
+        {courses.map((course) => (
+          <CourseCard
+            key={course.title}
+            title={course.title}
+            lessons={course.lessons}
+            progress={course.progress}
+            bgColor={course.bgColor}
+            icon={course.icon}
+            width={course.width}
+            height={course.height}
+          />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default CourseSection;
