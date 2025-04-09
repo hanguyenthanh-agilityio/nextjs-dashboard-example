@@ -21,6 +21,7 @@ const DashboardPage = () => (
     <div className="w-full md:w-1/3 pl-6 md:pl-10">
       {/* Section: Statistics */}
       <StatisticsSection />
+
       {/* Section: Activity */}
       <ActivitySection />
     </div>
