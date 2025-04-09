@@ -4,7 +4,13 @@ import UpgradePlan from "./upgradePlan";
 
 const Sidebar = () => (
   <div className="flex flex-col h-full items-center py-10 justify-between">
-    <Image src="/images/mainLogo.svg" width={121} height={37} alt="Main Logo" />
+    <Image
+      src="/images/mainLogo.svg"
+      width={121}
+      height={37}
+      alt="Main Logo"
+      className="md:pt-[20px]"
+    />
     <div className="flex md:flex-col w-full px-[35px]">
       <SidebarNav />
     </div>
