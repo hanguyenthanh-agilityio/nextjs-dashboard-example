@@ -18,7 +18,7 @@ const DashboardPage = () => (
 
     <div className="hidden md:block w-[2px] bg-gray-200"></div>
 
-    <div className="w-full md:w-1/3 p-6 md:p-10">
+    <div className="w-full md:w-1/3 pl-6 md:pl-10">
       {/* Section: Statistics */}
       <StatisticsSection />
       {/* Section: Activity */}
