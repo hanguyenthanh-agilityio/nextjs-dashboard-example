@@ -1,14 +1,5 @@
+import { Course } from "@/types/common";
 import Image from "next/image";
-
-interface CourseCardProps {
-  title: string;
-  lessons: number;
-  progress: number;
-  bgColor: string;
-  icon: string;
-  width: number;
-  height: number;
-}
 
 export default function CourseCard({
   title,
@@ -18,7 +9,7 @@ export default function CourseCard({
   icon,
   width,
   height,
-}: CourseCardProps) {
+}: Course) {
   return (
     <div
       className={`relative w-full h-40 rounded-2xl shadow-xl p-4 flex justify-between ${bgColor}`}
