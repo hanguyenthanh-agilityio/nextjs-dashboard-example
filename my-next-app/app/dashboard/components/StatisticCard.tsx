@@ -1,9 +1,6 @@
-interface StatisticCardProps {
-  label: string;
-  value: number;
-}
+import { Statistic } from "@/types/common";
 
-const StatisticCard = ({ label, value }: StatisticCardProps) => {
+const StatisticCard = ({ label, value }: Statistic) => {
   return (
     <div className="bg-blue-50 rounded-2xl p-4 flex flex-col justify-between min-h-[120px]">
       <p className="max-w-[100px] text-[#8EA3B7] text-base font-medium leading-tight">

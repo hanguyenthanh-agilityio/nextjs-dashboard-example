@@ -3,10 +3,15 @@
 import { useState } from "react";
 import clsx from "clsx";
 import ActivityChart from "./activityChart";
+import { Activity } from "@/types/common";
+
+interface ActivitySectionProp {
+  activity: Activity[];
+}
 
 const tabs = ["Day", "Week", "Month"];
 
-const ActivitySection = () => {
+const ActivitySection = ({ activity }: ActivitySectionProp) => {
   // State saves the selected tab, default is Week
   const [activeTab, setActiveTab] = useState("Week");
 
@@ -29,7 +34,7 @@ const ActivitySection = () => {
         </div>
       </div>
 
-      <ActivityChart />
+      <ActivityChart data={activity} />
     </div>
   );
 };

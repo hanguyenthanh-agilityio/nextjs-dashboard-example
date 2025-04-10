@@ -1,11 +1,11 @@
-import { getDashboard } from "@/api/dashboard";
 import PlanningItem from "./planningItem";
 import { Planning } from "@/types/common";
 
-const PlanningSection = async () => {
-  const dashboard = await getDashboard();
-  const data = dashboard[0]?.planning || [];
+interface PlanningSectionProps {
+  planning: Planning[];
+}
 
+const PlanningSection = ({ planning }: PlanningSectionProps) => {
   return (
     <div className="space-y-6 md:pr-10">
       <div className="flex items-center justify-between">
@@ -22,7 +22,7 @@ const PlanningSection = async () => {
 
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {data.map((item: Planning, index: number) => (
+        {planning.map((item: Planning, index: number) => (
           <PlanningItem key={index} {...item} />
         ))}
       </div>

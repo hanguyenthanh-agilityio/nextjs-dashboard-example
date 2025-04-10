@@ -15,3 +15,19 @@ export type Planning = {
   title: string;
   time: string;
 };
+
+export type Statistic = {
+  label: string;
+  value: number;
+};
+
+export type Activity = {
+  name: string;
+  value: number;
+};
+
+export type ActivityData = {
+  Day: Activity[];
+  Week: Activity[];
+  Month: Activity[];
+};

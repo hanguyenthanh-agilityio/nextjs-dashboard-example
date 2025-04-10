@@ -1,7 +1,13 @@
 import Image from "next/image";
 import { BellAlertIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 
-const UserProfile = () => (
+interface UserProfileProps {
+  src: string;
+  name: string;
+  note: string;
+}
+
+const UserProfile = ({ src, name, note }: UserProfileProps) => (
   <div className="flex items-center justify-between with-full gap-6 md:pt-10">
     {/* Alert */}
     <div className="relative">
@@ -12,15 +18,15 @@ const UserProfile = () => (
     {/* User profile */}
     <div className="flex items-center bg-blue-50 px-3 py-2 rounded-full gap-3">
       <Image
-        src="/images/Profile.png"
+        src={src}
         alt="Avatar"
         width={35}
         height={35}
         className="rounded-xl object-cover"
       />
       <div className="flex flex-col">
-        <span className="font-medium text-sm text-black">Bruno Fernandes</span>
-        <span className="text-xs text-blue-500">Basic Plan</span>
+        <span className="font-medium text-sm text-black">{name}</span>
+        <span className="text-xs text-blue-500">{note}</span>
       </div>
       <ChevronDownIcon className="w-4 h-4 text-gray-600" />
     </div>

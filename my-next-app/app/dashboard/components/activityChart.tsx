@@ -1,18 +1,9 @@
 "use client";
 
+import { Activity } from "@/types/common";
 import { BarChart, Bar, XAxis, ResponsiveContainer, Cell } from "recharts";
 
-const data = [
-  { name: "Mon", value: 60 },
-  { name: "Tues", value: 55 },
-  { name: "Wed", value: 40 },
-  { name: "Thurs", value: 100 },
-  { name: "Fri", value: 50 },
-  { name: "Sat", value: 80 },
-  { name: "Sun", value: 70 },
-];
-
-const ActivityChart = () => {
+const ActivityChart = ({ data = [] }: { data: Activity[] }) => {
   // Find the element with the largest value to bold the corresponding column
   const maxValue = Math.max(...data.map((i) => i.value));
 
