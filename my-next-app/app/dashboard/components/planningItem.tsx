@@ -1,21 +1,8 @@
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
+import { Planning } from "@/types/common";
 
-interface PlanningItemProps {
-  icon: string;
-  iconBg: string;
-  iconColor: string;
-  title: string;
-  time: string;
-}
-
-const PlanningItem = ({
-  icon,
-  iconBg,
-  iconColor,
-  title,
-  time,
-}: PlanningItemProps) => {
+const PlanningItem = ({ icon, iconBg, iconColor, title, time }: Planning) => {
   return (
     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl shadow-sm">
       <div className="flex items-center gap-4">

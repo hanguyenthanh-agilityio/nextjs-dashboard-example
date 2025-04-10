@@ -7,3 +7,11 @@ export type Course = {
   width: number;
   height: number;
 };
+
+export type Planning = {
+  icon: string;
+  iconBg: string;
+  iconColor: string;
+  title: string;
+  time: string;
+};
