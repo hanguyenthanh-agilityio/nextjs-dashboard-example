@@ -1,6 +1,6 @@
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { Planning } from "@/types/common";
+import { Planning } from "@/lib/definitions";
 
 const PlanningItem = ({ icon, iconBg, iconColor, title, time }: Planning) => {
   return (

@@ -1,4 +1,4 @@
-import { Planning } from "@/types/common";
+import { Planning } from "@/lib/definitions";
 import PlanningItem from "../components/planningItem";
 
 const PlanningList = ({ items }: { items: Planning[] }) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { Activity } from "@/types/common";
+import { Activity } from "@/lib/definitions";
 import { BarChart, Bar, XAxis, ResponsiveContainer, Cell } from "recharts";
 
 const ActivityChart = ({ data = [] }: { data: Activity[] }) => {

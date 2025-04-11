@@ -1,5 +1,5 @@
 import PlanningItem from "./planningItem";
-import { Planning } from "@/types/common";
+import { Planning } from "@/lib/definitions";
 import Search from "./searchBar";
 
 interface PlanningSectionProps {
