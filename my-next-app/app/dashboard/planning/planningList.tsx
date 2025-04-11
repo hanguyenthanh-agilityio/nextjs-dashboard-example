@@ -1,6 +1,5 @@
 import { Planning } from "@/types/common";
 import PlanningItem from "../components/planningItem";
-// import PlanningItem from "../components/planningItem";
 
 const PlanningList = ({ items }: { items: Planning[] }) => {
   if (!Array.isArray(items) || items.length === 0) {
@@ -8,7 +7,7 @@ const PlanningList = ({ items }: { items: Planning[] }) => {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {items.map((item) => (
         <PlanningItem key={item.id} {...item} />
       ))}

@@ -33,3 +33,8 @@ export type ActivityData = {
   Week: Activity[];
   Month: Activity[];
 };
+
+export type SearchParams = {
+  query?: string;
+  page?: string;
+};

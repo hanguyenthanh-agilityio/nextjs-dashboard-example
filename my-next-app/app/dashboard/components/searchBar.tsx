@@ -4,13 +4,17 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 
-export default function Search({ placeholder }: { placeholder: string }) {
+interface SearchProps {
+  placeholder: string;
+}
+
+const Search = ({ placeholder }: SearchProps) => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string) => {
-    console.log(`Searching... ${term}`);
+    console.log(`Search... ${term}`);
 
     const params = new URLSearchParams(searchParams);
     if (term) {
@@ -28,9 +32,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   return (
     <div className="relative flex w-[200px] flex-1 flex-shrink-0">
-      {/* <label htmlFor="search" className="sr-only">
-        Search
-      </label> */}
       <input
         className="peer block border-[none] py-[9px] pl-10 text-sm placeholder:text-gray-500"
         placeholder={placeholder}
@@ -40,4 +41,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
       <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
     </div>
   );
-}
+};
+
+export default Search;
