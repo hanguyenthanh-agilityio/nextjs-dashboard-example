@@ -1,31 +1,19 @@
-import { getPlanningData } from "@/api/planning";
 import { Planning } from "@/types/common";
+import PlanningItem from "../components/planningItem";
+// import PlanningItem from "../components/planningItem";
 
-export default async function PlanningList({
-  query,
-  currentPage,
-}: {
-  query: string;
-  currentPage: number;
-}) {
-  const plans = await getPlanningData(query, currentPage);
-
-  const filtered = plans.filter((plan: Planning) =>
-    plan.title.toLowerCase().includes(query.toLowerCase())
-  );
-
-  if (!filtered.length) {
+const PlanningList = ({ items }: { items: Planning[] }) => {
+  if (!Array.isArray(items) || items.length === 0) {
     return <p className="text-gray-500">No plans found.</p>;
   }
 
   return (
-    <ul className="space-y-4">
-      {filtered.map((plan: Planning) => (
-        <li key={plan.id} className="p-4 bg-white shadow rounded">
-          <h3 className="font-semibold text-lg">{plan.title}</h3>
-          <p className="text-gray-600">{plan.description}</p>
-        </li>
+    <div className="space-y-4">
+      {items.map((item) => (
+        <PlanningItem key={item.id} {...item} />
       ))}
-    </ul>
+    </div>
   );
-}
+};
+
+export default PlanningList;
