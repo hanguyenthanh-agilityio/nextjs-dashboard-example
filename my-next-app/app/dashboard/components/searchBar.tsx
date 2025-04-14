@@ -2,6 +2,7 @@
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { ChangeEvent } from "react";
 import { useDebouncedCallback } from "use-debounce";
 
 interface SearchProps {
@@ -26,7 +27,7 @@ const Search = ({ placeholder }: SearchProps) => {
     replace(`${pathname}?${params.toString()}`);
   }, 300);
 
-  const handleOnChange = (e: any) => {
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     handleSearch(e.target.value);
   };
 

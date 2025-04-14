@@ -13,7 +13,7 @@ import { CourseCardSkeleton } from "@/components/loading";
 const DashboardPage = async () => {
   const dashboard = await getDashboard();
   const data = dashboard[0];
-  const { courses, planning, statistics, activity, profile } = data || {};
+  const { planning, statistics, activity, profile } = data || {};
   const firstName = profile.name.split(" ")[0];
 
   return (
