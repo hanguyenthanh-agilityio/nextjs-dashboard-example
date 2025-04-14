@@ -9,7 +9,7 @@ const PlanningList = ({ items }: { items: Planning[] }) => {
   return (
     <div className="space-y-6">
       {items.map((item) => (
-        <PlanningItem key={item.id} {...item} />
+        <PlanningItem key={item.id} {...item} isButtonAction={true} />
       ))}
     </div>
   );

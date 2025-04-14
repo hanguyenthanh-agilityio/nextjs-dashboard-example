@@ -1,5 +1,6 @@
 import Breadcrumbs from "@/components/breadcrumb";
-import Form from "./form";
+import Form from "@/components/form";
+import { createPlanning } from "@/lib/actions";
 
 export default async function Page() {
   return (
@@ -14,7 +15,9 @@ export default async function Page() {
           },
         ]}
       />
-      <Form />
+      <form action={createPlanning}>
+        <Form />
+      </form>
     </main>
   );
 }

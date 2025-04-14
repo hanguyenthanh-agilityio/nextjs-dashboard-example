@@ -30,3 +30,13 @@ export const getPlanningData = async (
     };
   }
 };
+
+export async function getPlanningById(id: string) {
+  const res = await fetch(`${BASE_URL}/planning/${id}`);
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch planning");
+  }
+
+  return res.json();
+}

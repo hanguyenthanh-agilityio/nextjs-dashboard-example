@@ -1,8 +1,21 @@
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Planning } from "@/lib/definitions";
+import { Update } from "@/components/button";
 
-const PlanningItem = ({ icon, iconBg, iconColor, title, time }: Planning) => {
+type PlanningItemProps = Planning & {
+  isButtonAction?: boolean;
+};
+
+const PlanningItem = ({
+  icon,
+  iconBg,
+  iconColor,
+  title,
+  time,
+  id,
+  isButtonAction = false,
+}: PlanningItemProps) => {
   return (
     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-xl shadow-sm">
       <div className="flex items-center gap-4">
@@ -22,13 +35,19 @@ const PlanningItem = ({ icon, iconBg, iconColor, title, time }: Planning) => {
           <p className="text-xs text-[#bdbdbd] pt-[5px]">{time}</p>
         </div>
       </div>
-      <div className="">
-        <EllipsisVerticalIcon
-          className="text-gray-400"
-          width={25}
-          height={25}
-        />
-      </div>
+      {isButtonAction ? (
+        <div className="flex justify-end gap-2">
+          <Update id={String(id)} />
+        </div>
+      ) : (
+        <div className="">
+          <EllipsisVerticalIcon
+            className="text-gray-400"
+            width={25}
+            height={25}
+          />
+        </div>
+      )}
     </div>
   );
 };

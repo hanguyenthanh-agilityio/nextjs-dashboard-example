@@ -1,0 +1,19 @@
+import Form from "@/components/form";
+import { updatePlanning } from "@/lib/actions";
+import { Planning } from "@/lib/definitions";
+
+interface EditPlanningFormProps {
+  planning: Planning;
+}
+
+const EditPlanningForm = ({ planning }: EditPlanningFormProps) => {
+  const updatePlanningWithId = updatePlanning.bind(null, planning.id!);
+
+  return (
+    <form action={updatePlanningWithId}>
+      <Form planning={planning} />
+    </form>
+  );
+};
+
+export default EditPlanningForm;
