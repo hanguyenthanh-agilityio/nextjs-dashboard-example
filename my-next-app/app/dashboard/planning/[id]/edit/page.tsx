@@ -1,6 +1,5 @@
 import { getPlanningById } from "@/api/planning";
 import Breadcrumbs from "@/components/breadcrumb";
-import Form from "@/components/form";
 import EditPlanningForm from "./edit-form";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {

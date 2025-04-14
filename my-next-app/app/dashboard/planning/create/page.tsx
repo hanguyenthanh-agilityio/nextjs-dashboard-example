@@ -16,7 +16,7 @@ export default async function Page() {
         ]}
       />
       <form action={createPlanning}>
-        <Form />
+        <Form buttonAction="Create Plan" />
       </form>
     </main>
   );

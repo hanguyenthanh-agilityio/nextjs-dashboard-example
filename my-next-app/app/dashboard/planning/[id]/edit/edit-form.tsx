@@ -11,7 +11,7 @@ const EditPlanningForm = ({ planning }: EditPlanningFormProps) => {
 
   return (
     <form action={updatePlanningWithId}>
-      <Form planning={planning} />
+      <Form buttonAction="Update plan" planning={planning} />
     </form>
   );
 };

@@ -23,9 +23,10 @@ const iconColorOptions = [
 
 interface FormProps {
   planning?: Planning;
+  buttonAction?: string;
 }
 
-const Form = ({ planning }: FormProps) => {
+const Form = ({ planning, buttonAction }: FormProps) => {
   return (
     // <form action={createPlanning}>
     <div className="w-full max-w-xl bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-gray-200">
@@ -132,7 +133,7 @@ const Form = ({ planning }: FormProps) => {
         >
           Cancel
         </Link>
-        <Button type="submit">Create Plan</Button>
+        <Button type="submit">{buttonAction}</Button>
       </div>
     </div>
     // </form>
