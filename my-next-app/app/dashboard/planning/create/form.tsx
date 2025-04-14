@@ -1,24 +1,29 @@
-"use client";
-
 import Link from "next/link";
-
 import { Button } from "@/components/button";
 
 import {
-  CalendarIcon,
   PencilSquareIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { createPlanning } from "@/lib/actions";
+
+const iconBgOptions = [
+  "bg-yellow-100",
+  "bg-blue-100",
+  "bg-green-100",
+  "bg-pink-100",
+];
+
+const iconColorOptions = [
+  "text-yellow-500",
+  "text-blue-500",
+  "text-green-500",
+  "text-pink-500",
+];
 
 const Form = () => {
-  const [form, setForm] = useState({
-    title: "",
-    description: "",
-    date: "",
-  });
   return (
-    <form>
+    <form action={createPlanning}>
       <div className="w-full max-w-xl bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-gray-200">
         <h2 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
           <PencilSquareIcon className="w-6 h-6 text-blue-500" />
@@ -34,10 +39,10 @@ const Form = () => {
             </label>
             <input
               type="text"
+              name="title"
               placeholder="e.g. Learn French Basics"
-              value={form.title}
-              onChange={(e) => setForm({ ...form, title: e.target.value })}
               className="mt-1 block w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              required
             />
           </div>
 
@@ -48,30 +53,68 @@ const Form = () => {
               Description
             </label>
             <textarea
+              name="description"
               rows={4}
               placeholder="e.g. Complete chapters 1–5"
-              value={form.description}
-              onChange={(e) =>
-                setForm({ ...form, description: e.target.value })
-              }
               className="mt-1 block w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
-            />
-          </div>
-
-          {/* Date */}
-          <div>
-            <label className="text-sm font-medium text-gray-700 flex items-center gap-2">
-              <CalendarIcon className="w-5 h-5 text-gray-400" />
-              Date
-            </label>
-            <input
-              type="date"
-              value={form.date}
-              onChange={(e) => setForm({ ...form, date: e.target.value })}
-              className="mt-1 block w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+              required
             />
           </div>
         </div>
+
+        {/* Icon Upload */}
+        <div className="space-y-1">
+          <label className="text-sm font-medium text-gray-700">
+            Icon Image
+          </label>
+          <input
+            type="file"
+            name="icon"
+            accept="image/*"
+            required
+            className="block w-full text-sm file:mr-4 file:py-2 file:px-4
+            file:rounded-md file:border-0
+            file:bg-blue-50 file:text-blue-700
+            hover:file:bg-blue-100"
+          />
+        </div>
+
+        {/* Icon Background */}
+        <div className="space-y-1">
+          <label className="text-sm font-medium text-gray-700">
+            Icon Background
+          </label>
+          <select
+            name="iconBg"
+            required
+            className="w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+          >
+            {iconBgOptions.map((bg) => (
+              <option key={bg} value={bg}>
+                {bg}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* Icon Color */}
+        <div className="space-y-1">
+          <label className="text-sm font-medium text-gray-700">
+            Icon Color
+          </label>
+          <select
+            name="iconColor"
+            required
+            className="w-full rounded-xl border border-gray-300 px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
+          >
+            {iconColorOptions.map((color) => (
+              <option key={color} value={color}>
+                {color}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="mt-6 flex justify-end gap-4">
           <Link
             href="/dashboard/planning"
