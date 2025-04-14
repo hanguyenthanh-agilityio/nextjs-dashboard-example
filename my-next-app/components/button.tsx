@@ -1,3 +1,4 @@
+import { deletePlanning } from "@/lib/actions";
 import { PencilIcon, TrashIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
@@ -32,12 +33,14 @@ export function Update({ id }: { id: string }) {
 }
 
 export function Delete({ id }: { id: string }) {
+  const deleteInvoiceWithId = deletePlanning.bind(null, id);
+
   return (
-    <>
+    <form action={deleteInvoiceWithId}>
       <button type="submit" className="rounded-md border p-2 hover:bg-gray-100">
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />
       </button>
-    </>
+    </form>
   );
 }

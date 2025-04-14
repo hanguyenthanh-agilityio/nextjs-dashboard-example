@@ -8,6 +8,7 @@ import { PlanningSchema } from "./schema";
 
 const BASE_URL = "https://67f887c42466325443eceaa9.mockapi.io/planning";
 
+// Create Planning
 export async function createPlanning(formData: FormData): Promise<void> {
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
@@ -85,6 +86,20 @@ export async function updatePlanning(
 
   if (!res.ok) {
     throw new Error("Failed to update planning");
+  }
+
+  revalidatePath("/dashboard/planning");
+  redirect("/dashboard/planning");
+}
+
+// Delete Planning
+export async function deletePlanning(id: string): Promise<void> {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to delete planning");
   }
 
   revalidatePath("/dashboard/planning");

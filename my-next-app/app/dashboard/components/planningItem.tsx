@@ -1,14 +1,14 @@
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import { Planning } from "@/lib/definitions";
-import { Update } from "@/components/button";
+import { Delete, Update } from "@/components/button";
 
 type PlanningItemProps = Planning & {
   isButtonAction?: boolean;
 };
 
 const PlanningItem = ({
-  icon,
+  icon = "/images/planning/Edit.png",
   iconBg,
   iconColor,
   title,
@@ -38,6 +38,7 @@ const PlanningItem = ({
       {isButtonAction ? (
         <div className="flex justify-end gap-2">
           <Update id={String(id)} />
+          <Delete id={String(id)} />
         </div>
       ) : (
         <div className="">
