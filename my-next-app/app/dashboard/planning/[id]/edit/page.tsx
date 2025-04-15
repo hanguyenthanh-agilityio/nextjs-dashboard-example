@@ -8,7 +8,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   const planning = await getPlanningById(params.id);
 
   return (
-    <main>
+    <main className=" md:pt-[65px]">
       <Breadcrumbs
         breadcrumbs={[
           { label: "Planning", href: "/dashboard/planning" },
