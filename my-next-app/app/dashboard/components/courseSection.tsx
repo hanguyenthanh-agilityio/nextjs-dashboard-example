@@ -1,12 +1,25 @@
+import { getDashboard } from "@/api/dashboard";
 import CourseCard from "./courseCard";
 
 import { Course } from "@/types/common";
 
-interface CourseSectionProps {
-  courses: Course[];
-}
+// interface CourseSectionProps {
+//   courses: Course[];
+// }
 
-const CourseSection = ({ courses }: CourseSectionProps) => {
+const CourseSection = async () => {
+  const dashboardData = await getDashboard();
+  const courses = dashboardData[0]?.courses || [];
+
+  if (!courses) {
+    return (
+      <div className="py-12">
+        <h2 className="text-3xl text-[#303030] font-bold">My Courses</h2>
+        <p className="text-gray-500">No courses available.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="py-12">
       <h2 className="text-3xl text-[#303030] font-bold">My Courses</h2>

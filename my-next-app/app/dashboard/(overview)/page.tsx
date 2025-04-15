@@ -1,10 +1,14 @@
 import { getDashboard } from "@/api/dashboard";
-import ActivitySection from "./components/activitySection";
-import CourseSection from "./components/courseSection";
-import Header from "./components/header";
-import PlanningSection from "./components/PlanningSection";
-import StatisticsSection from "./components/statisticsSection";
-import UserProfile from "./components/userProfile";
+
+import { Suspense } from "react";
+import Header from "../components/header";
+// import { CourseCardSkeleton } from "./(overview)/loading";
+import CourseSection from "../components/courseSection";
+import PlanningSection from "../components/PlanningSection";
+import UserProfile from "../components/userProfile";
+import StatisticsSection from "../components/statisticsSection";
+import ActivitySection from "../components/activitySection";
+import { CourseCardSkeleton } from "@/components/loading";
 
 const DashboardPage = async () => {
   const dashboard = await getDashboard();
@@ -18,7 +22,10 @@ const DashboardPage = async () => {
         <Header user={firstName} />
 
         {/* Section: My Courses */}
-        <CourseSection courses={courses} />
+        <Suspense fallback={<CourseCardSkeleton />}>
+          {/* <CourseSection courses={courses} /> */}
+          <CourseSection />
+        </Suspense>
 
         {/* Section: Planning */}
         <PlanningSection planning={planning} />
