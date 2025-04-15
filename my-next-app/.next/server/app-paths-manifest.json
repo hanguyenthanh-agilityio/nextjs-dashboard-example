@@ -2,8 +2,8 @@
   "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
-  "/dashboard/(overview)/page": "app/dashboard/(overview)/page.js",
-  "/dashboard/planning/page": "app/dashboard/planning/page.js",
+  "/dashboard/courses/page": "app/dashboard/courses/page.js",
   "/course/page": "app/course/page.js",
-  "/dashboard/courses/page": "app/dashboard/courses/page.js"
+  "/dashboard/planning/page": "app/dashboard/planning/page.js",
+  "/dashboard/(overview)/page": "app/dashboard/(overview)/page.js"
 }
