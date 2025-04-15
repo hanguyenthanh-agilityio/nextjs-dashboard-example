@@ -1,4 +1,4 @@
-import { Planning } from "@/types/common";
+import { Planning } from "@/lib/definitions";
 import PlanningItem from "../components/planningItem";
 
 const PlanningList = ({ items }: { items: Planning[] }) => {
@@ -9,7 +9,7 @@ const PlanningList = ({ items }: { items: Planning[] }) => {
   return (
     <div className="space-y-6">
       {items.map((item) => (
-        <PlanningItem key={item.id} {...item} />
+        <PlanningItem key={item.id} {...item} isButtonAction={true} />
       ))}
     </div>
   );

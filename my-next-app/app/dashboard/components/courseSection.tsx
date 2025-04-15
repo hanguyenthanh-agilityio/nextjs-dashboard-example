@@ -3,7 +3,7 @@ export const dynamic = "force-dynamic";
 import { getDashboard } from "@/api/dashboard";
 import CourseCard from "./courseCard";
 
-import { Course } from "@/types/common";
+import { Course } from "@/lib/definitions";
 import Search from "./searchBar";
 
 // interface CourseSectionProps {

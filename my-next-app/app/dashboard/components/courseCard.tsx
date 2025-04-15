@@ -1,4 +1,4 @@
-import { Course } from "@/types/common";
+import { Course } from "@/lib/definitions";
 import Image from "next/image";
 
 export default function CourseCard({

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import ActivityChart from "./activityChart";
-import { Activity } from "@/types/common";
+import { Activity } from "@/lib/definitions";
 
 interface ActivitySectionProp {
   activity: Activity[];

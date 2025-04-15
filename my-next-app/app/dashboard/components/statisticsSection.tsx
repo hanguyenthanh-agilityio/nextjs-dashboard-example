@@ -1,5 +1,5 @@
 import StatisticCard from "./StatisticCard";
-import { Statistic } from "@/types/common";
+import { Statistic } from "@/lib/definitions";
 
 interface StatisticsSectionProps {
   statistics: Statistic[];

@@ -1,4 +1,4 @@
-import { Statistic } from "@/types/common";
+import { Statistic } from "@/lib/definitions";
 
 const StatisticCard = ({ label, value }: Statistic) => {
   return (
