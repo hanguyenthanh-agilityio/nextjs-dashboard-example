@@ -13,7 +13,7 @@ import clsx from "clsx";
 
 const listItem = [
   { name: "Overview", href: "/dashboard", icon: HomeIcon },
-  { name: "Course", href: "/course", icon: Squares2X2Icon },
+  { name: "Planning", href: "/dashboard/planning", icon: Squares2X2Icon },
   { name: "Resources", href: "/resources", icon: FolderMinusIcon },
   { name: "Message", href: "/message", icon: ChatBubbleLeftEllipsisIcon },
   { name: "Setting", href: "/setting", icon: CogIcon },

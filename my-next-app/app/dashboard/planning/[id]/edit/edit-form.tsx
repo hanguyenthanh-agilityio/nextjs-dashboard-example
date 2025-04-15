@@ -10,7 +10,7 @@ const EditPlanningForm = ({ planning }: EditPlanningFormProps) => {
   const updatePlanningWithId = updatePlanning.bind(null, planning.id!);
 
   return (
-    <form action={updatePlanningWithId}>
+    <form action={updatePlanningWithId} className="pt-5">
       <Form buttonAction="Update plan" planning={planning} />
     </form>
   );
