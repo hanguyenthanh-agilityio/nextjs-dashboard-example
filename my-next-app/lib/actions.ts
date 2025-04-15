@@ -94,6 +94,8 @@ export async function updatePlanning(
 
 // Delete Planning
 export async function deletePlanning(id: string): Promise<void> {
+  // throw new Error("Failed to Delete Invoice");
+
   const res = await fetch(`${BASE_URL}/${id}`, {
     method: "DELETE",
   });

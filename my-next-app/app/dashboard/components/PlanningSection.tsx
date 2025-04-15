@@ -1,6 +1,5 @@
 import PlanningItem from "./planningItem";
 import { Planning } from "@/lib/definitions";
-import Search from "./searchBar";
 
 interface PlanningSectionProps {
   planning: Planning[];
@@ -15,7 +14,6 @@ const PlanningSection = ({ planning }: PlanningSectionProps) => {
           <button className="text-sm text-[#369FFF] font-medium">
             View All
           </button>
-          <Search placeholder="search..." />
         </div>
         <div className="flex items-center text-blue-500 text-sm gap-1">
           <span>20 March 2020</span>

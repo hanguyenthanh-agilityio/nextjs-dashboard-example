@@ -28,7 +28,6 @@ interface FormProps {
 
 const Form = ({ planning, buttonAction }: FormProps) => {
   return (
-    // <form action={createPlanning}>
     <div className="w-full max-w-xl bg-white shadow-lg rounded-2xl p-8 space-y-6 border border-gray-200">
       <h2 className="text-2xl font-semibold text-gray-800 flex items-center gap-2">
         <PencilSquareIcon className="w-6 h-6 text-blue-500" />
@@ -136,7 +135,6 @@ const Form = ({ planning, buttonAction }: FormProps) => {
         <Button type="submit">{buttonAction}</Button>
       </div>
     </div>
-    // </form>
   );
 };
 
