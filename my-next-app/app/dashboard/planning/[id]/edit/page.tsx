@@ -1,11 +1,16 @@
 import { getPlanningById } from "@/api/planning";
 import Breadcrumbs from "@/components/breadcrumb";
 import EditPlanningForm from "./edit-form";
+import { notFound } from "next/navigation";
 
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const id = params.id;
   const planning = await getPlanningById(params.id);
+
+  if (!planning) {
+    notFound();
+  }
 
   return (
     <main className=" md:pt-[65px]">

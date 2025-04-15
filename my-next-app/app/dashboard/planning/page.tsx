@@ -4,6 +4,7 @@ import { PlanningCardSkeleton } from "@/components/loading";
 import { getPlanningData } from "@/api/planning";
 import Pagination from "@/components/pagination";
 import SearchBar from "./searchBar";
+import { notFound } from "next/navigation";
 
 const PlanningPage = async (props: {
   searchParams?: Promise<{
@@ -17,6 +18,10 @@ const PlanningPage = async (props: {
 
   const { data, totalCount } = await getPlanningData(query, currentPage, 4);
   const totalPages = Math.ceil(totalCount / 4);
+
+  if (!data || data.length === 0) {
+    notFound();
+  }
 
   return (
     <div className="space-y-6">
